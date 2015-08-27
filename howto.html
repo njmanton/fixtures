@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	
+	<head>
+		<meta charset="utf-8" />
+		<title>Howto | Fixtures</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+		<script>window.jQuery || document.write ('<script src="/js/jquery-1.8.2.min.js">\x3C/script>')</script>
+	</head>
+	
+	<body>
+		
+		<h1>Howto</h1>
+		
+		<section id="teams">
+			<h2>Teams</h2>
+			<p>The most important element of any competition is the team. Here 'team' is used generically to mean a team, club, individual competitor, or any other entity that takes part in the competition.</p>
+			<p>Start typing names into the 'add a team' textbox. When you press enter, it will be added to the list of teams below.</p>
+			<p>The order in which you enter teams is not important as they can be reordered later. However, the entered order is by default the order of seeding if using a DE format.</p>
+			<p>You can drag teams in the list up or down to change the order. This will automatically cause the schedule to be recalculated</p>
+			<p>Click on the '&times;' on any team to remove it from the list.</p>
+		</section>
+		
+		<section id="names">
+			<h2>Headers</h2>
+			<p>You can add a title and subtitle to your competition. These will appear at the top of the output schedule.</p>
+		</section>
+		
+		<section id="formats">
+			<h2>Formats</h2>
+			<p>The second most important element is the format of the competition. Currently the tool supports two main formats, each with a number of sub-formats.</p>
+			<dl>Round robin</dl>
+			<dd><p>The first format is round robin, where every team plays every other team in the competition. The tool calculates the number of rounds required for a round robin, and then assigns matches between two teams for each round. If there is an odd number of teams, then one team will have a 'rest round' where they don't play a match. Given <em>n</em> teams, there will be <em>n</em> rounds if <em>n</em> is odd, and <em>n-1</em> if <em>n</em> is even.</p></dd>
+			<dl>Direct Elimination</dl>
+			<dd>
+				<p>The other main format is direct elimination, or knock-out. Each team is matched with another, and the winner progresses to the next round. If the number of competitors is not a power of 2, then a number of teams will receive 'byes' from that round of matches.</p>
+				<p>The order in which the teams are ordered in the list will determine the seedings, the team at the top of the list being the number 1 seed. By default, the matches will be created so that the top seed plays the bottom seed, the second seed plays second-to-bottom and so on. Other options are to completely randomise the matchups regardless of seeding, or to seed the first two teams only.</p>
+			</dd>
+		</section>
+		
+		<section id="dates">
+			<h2>Dates</h2>
+			<p>Dates can be added to the schedule</p>
+		</section>
+		
+	</body>
+	
+</html>

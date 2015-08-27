@@ -1,0 +1,76 @@
+@import url('bootstrap.min.css');
+
+body {
+	background-image: url('../img/farmer.png');
+}
+
+h1 {
+	color: #ff2b00;
+}
+
+/* Colour Palette */
+/*
+#ff2b00 (orange-red)
+#fa0 (gold)
+#b37700 (bronze)
+#030303 (near black)
+
+*/
+
+/* styles for team list items */
+.sortable-placeholder {
+	display: block;
+	min-height: 2em;
+	border: 2px dashed #666;
+}
+
+.sortable-placeholder:before {
+	content: "drop";
+	padding: 40%;
+	font-weight: bold;
+	color: #666;
+}
+
+.sortable li {
+	display: block;
+	position: relative;
+	width: 15em;
+	border: 1px solid #639;
+	margin: 0.3em 0;
+	padding: 0.2em 0.3em;
+	min-height: 2em;
+	.handle {
+		cursor: move;
+		padding: 0.2em;
+
+	}
+	p {
+		margin: 0;
+		padding: 0 0.3em;
+	}
+	.teamopts {
+		display: inline;
+		position: absolute;
+		right: 0;
+		top: 10%;
+		cursor: default;
+		padding: 0.2em;
+	}
+}
+
+.team_edit {
+	cursor: pointer;
+	&:hover {
+		color: gold;
+	};
+}
+
+.sortable-dragging {
+	transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-webkit-transform: rotate(3deg);
+	filter: drop-shadow(2px 2px 2px);
+}
+
+
+

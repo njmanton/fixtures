@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	
+	<head>
+		<meta charset="utf-8" />
+		<title>Fixtures</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+		<script>window.jQuery || document.write ('<script src="/js/jquery-1.8.2.min.js">\x3C/script>')</script>
+	</head>
+	
+	<body class="container">
+		<header>
+			<img src="" alt="" />
+			<nav>
+				<ul>
+					<li><a href="/about.html">About</a></li>
+					<li><a href="/howto.html">Howto</a></li>
+					<li></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="main" class="row">
+			
+			<div class="options col-md-6">
+				
+				<section id="teams">
+					<h2>Who's Playing?</h2>
+					<p>Enter team names here one at a time, or import a list using the button</p>
+					<p>Drag teams within the list to reorder them. The order given will define the seeds for a knockout	format (if used)</p>
+					<label for="c_newteam">Add a team
+						<input type="text" id="c_newteam" />
+					</label>
+					<span id="dup_team"></span>
+					<section id="c_teams">
+							<ol class="sortable"></ol>
+					</section>			
+					<input type="file" id="fileupload" value="Choose file..." />
+				</section>
+			
+				<section id="titles">
+					<h2>Let's give it a name</h2>
+					<p>Pick a title (and optional sub-title) for your competition</p>
+					<label for="c_title">Title
+						<input type="text" id="c_title" />
+					</label>
+					<label for="c_subtitle">Subtitle
+						<input type="text" id="c_subtitle" />
+					</label>
+				</section>
+				
+				<section id="formats">
+					<h2>Format</h2>
+					<p>What is the format of your competition?</p>
+					<label for="c_format">Round-robin
+						<input type="radio" value="rr" name="c_format" />
+					</label><br />
+					<label>Direct Elimination
+						<input type="radio" value="de" name="c_format" />
+					</label>
+					<div class="suboption" id="rr_options" style="display: none;">
+						<label>One round
+							<input type="radio" checked value="oneround" name="rr_sub" />
+						</label><br>
+						<label>Home and Away
+							<input type="radio" value="homeaway" name="rr_sub" />
+						</label><br>
+					</div>
+					<div class="suboption" id="de_options" style="display: none;">
+						<label>Seeded
+							<input type="radio" checked value="seeded" name="de_sub" />
+						</label><br />
+						<label>Random Draw
+							<input type="radio" value="freedraw" name="de_sub" />
+						</label><br />
+
+					</div>
+				</section>
+						
+				<section id="dates">
+					<h2>Dates</h2>
+					<p>Does your competition have fixed dates? You can optionally enter a schedule here.</p>
+						<label for="startdate">Enter the date of the first fixtures (dd/mm/yyyy)
+							<input type="date" name="startdate" id="startdate" placeholder="dd/mm/yyyy" />
+						</label><br />
+							<input type="radio" name="period" value="day" />Daily<br />		
+							<input type="radio" name="period" value="week" />Weekly<br />		
+							<input type="radio" name="period" value="other" />Other		
+						<div class="suboption">
+							<label for="otherperiod">days between each round
+								<input type="number" id="otherperiod" name="otherperiod" disabled />
+							</label>
+						</div>
+				</section>
+				
+				<section id="finish">
+					<p>Export your schedule as a PDF, CSV file (for Excel etc.), XML or JSON</p>
+					<select name="export_format" id="format">
+						<option value="pdf">PDF</option>
+						<option value="csv">CSV</option>
+						<option value="xml">XML</option>
+						<option value="json">JSON</option>
+					</select>
+					<button id="export">Export</button>
+				</section>	
+						
+			</div>
+			
+			<div class="output col-md-6">
+				
+				<h2>Output</h2>
+				<section id="schedule">
+					<p>No content, enter at least two teams and choose a format</p>
+				</section>
+				
+			</div>
+			
+		</div>
+		
+		<footer>
+			<p><a href="http://mantonbradbury.net">http://mantonbradbury.net</a></p>
+		</footer>
+		
+	</body>
+	
+	<script src="js/jquery.sortable.min.js"></script>	
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript" src="js/League.js"></script>
+	<script type="text/javascript" src="js/fixtures.js"></script>
+	<script type="text/javascript" src="js/moment.min.js"></script>
+	<script type="text/javascript">
+
+		var league = new League();
+		var list = $('#c_teams ol');
+		var dup_err = $('#dup_team');
+		var c = '<li><span class="handle">::</span><span class="team_name">%s</span><div class="teamopts"><span class="team_edit">e</span><a href="#" class="team_delete">&times;</a></div></li>';
+
+		$(document).ready(function() {
+			initFixtures();
+		})
+	</script>
+	
+</html>
